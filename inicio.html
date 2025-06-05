@@ -1,17 +1,27 @@
 <!DOCTYPE html>
 <html lang="es">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Daradigu · Inicio</title>
-  </head>
-  <body>
-    <h1>👋 Bienvenido a Daradigu</h1>
-    <ul>
-      <p><a href="crear.html">🧠 Editor IA</a></p>
-      <p><a href="plantillas.html">📄 Plantillas</a></p>
-      <p><a href="ayuda.html">❓ Centro de ayuda</a></p>
-      <p><a href="administrador.html">🧑‍💼 Director ejecutivo del panel</a></p>
-    </ul>
-  </body>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Iniciar sesión – Daradigu</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css">
+</head>
+<body class="bg-gray-100 flex items-center justify-center h-screen">
+  <div class="bg-white p-8 rounded-xl shadow-md w-full max-w-md">
+    <h2 class="text-2xl font-bold mb-6 text-center">Accede a Daradigu</h2>
+    <form>
+      <label class="block mb-2 text-sm font-medium">Correo electrónico</label>
+      <input type="email" placeholder="tucorreo@ejemplo.com" class="w-full px-4 py-2 border rounded-md mb-4" required />
+
+      <label class="block mb-2 text-sm font-medium">Contraseña</label>
+      <input type="password" placeholder="••••••••" class="w-full px-4 py-2 border rounded-md mb-6" required />
+
+      <button type="submit" class="w-full bg-blue-600 text-white py-2 rounded-md hover:bg-blue-700">Entrar</button>
+    </form>
+
+    <p class="text-sm text-center mt-6">
+      ¿No tienes cuenta? <a href="crear.html" class="text-blue-600 hover:underline">Crea una gratis</a>
+    </p>
+  </div>
+</body>
 </html>
