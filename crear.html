@@ -1,16 +1,30 @@
 <!DOCTYPE html>
 <html lang="es">
-  <head>
-    <meta charset="UTF-8" />
-    <title>Generador IA - Daradigu</title>
-  </head>
-  <body>
-    <h1>🪄 Generar contenido con IA</h1>
-    <p>Escribe lo que necesitas:</p>
-    <form onsubmit="alert('⚙️ Contenido generado automáticamente (simulado)'); return false;">
-      <textarea placeholder="Ej: Quiero un post para LinkedIn sobre liderazgo..." rows="6" cols="50" required></textarea><br><br>
-      <button type="submit">Generar ahora</button>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Crear cuenta – Daradigu</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css">
+</head>
+<body class="bg-gray-100 flex items-center justify-center h-screen">
+  <div class="bg-white p-8 rounded-xl shadow-md w-full max-w-md">
+    <h2 class="text-2xl font-bold mb-6 text-center">Crea tu cuenta Daradigu</h2>
+    <form>
+      <label class="block mb-2 text-sm font-medium">Nombre</label>
+      <input type="text" placeholder="Tu nombre" class="w-full px-4 py-2 border rounded-md mb-4" required />
+
+      <label class="block mb-2 text-sm font-medium">Correo electrónico</label>
+      <input type="email" placeholder="correo@ejemplo.com" class="w-full px-4 py-2 border rounded-md mb-4" required />
+
+      <label class="block mb-2 text-sm font-medium">Contraseña</label>
+      <input type="password" placeholder="••••••••" class="w-full px-4 py-2 border rounded-md mb-6" required />
+
+      <button type="submit" class="w-full bg-green-600 text-white py-2 rounded-md hover:bg-green-700">Crear cuenta</button>
     </form>
-    <p><a href="/inicio.html">← Volver al inicio</a></p>
-  </body>
+
+    <p class="text-sm text-center mt-6">
+      ¿Ya tienes cuenta? <a href="inicio.html" class="text-blue-600 hover:underline">Inicia sesión</a>
+    </p>
+  </div>
+</body>
 </html>
