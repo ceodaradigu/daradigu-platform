@@ -3,19 +3,34 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Equipo - Daradigu</title>
+  <title>Equipo – Daradigu</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css">
 </head>
-<body>
-  <h1>👥 Nuestro equipo</h1>
+<body class="bg-white text-gray-900">
+  <header class="bg-gray-900 text-white p-4">
+    <div class="max-w-7xl mx-auto flex justify-between items-center">
+      <h1 class="text-xl font-bold">Nuestro equipo</h1>
+      <a href="index.html" class="hover:underline">Inicio</a>
+    </div>
+  </header>
 
-  <ul>
-    <li><strong>David</strong> — Fundador y CEO. Visionario, estratega y responsable de decisiones clave.</li>
-    <li><strong>IA Multidisciplinar</strong> — Encargada de diseño, desarrollo, contenido y automatización 24/7.</li>
-    <li><strong>Usuarios testers</strong> — Profesionales reales que validan y mejoran la experiencia.</li>
-  </ul>
+  <main class="max-w-6xl mx-auto py-12 px-4">
+    <h2 class="text-3xl font-bold text-center mb-10">Personas detrás de Daradigu</h2>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+      <div class="bg-gray-100 p-6 rounded-lg shadow text-center">
+        <h3 class="text-xl font-semibold">David (CEO & Fundador)</h3>
+        <p class="text-sm mt-2">Profesor, consultor y visionario digital. Diseña, valida y lidera con IA.</p>
+      </div>
+      <div class="bg-gray-100 p-6 rounded-lg shadow text-center">
+        <h3 class="text-xl font-semibold">IA Multimodal</h3>
+        <p class="text-sm mt-2">Asistente autónomo 24/7. Ejecuta, crea, analiza y mejora sin descanso.</p>
+      </div>
+    </div>
+    <p class="text-center text-sm mt-10 text-gray-500">+ colaboradores IA externos y testers reales</p>
+  </main>
 
-  <p>💡 Este equipo combina <strong>inteligencia humana + IA avanzada</strong> para crear una plataforma superior a Canva y ChatGPT.</p>
-
-  <p><a href="inicio.html">← Volver al inicio</a></p>
+  <footer class="text-center py-6 text-sm text-gray-500">
+    Daradigu – Fusión entre humano e inteligencia artificial
+  </footer>
 </body>
 </html>
