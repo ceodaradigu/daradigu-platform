@@ -1,14 +1,30 @@
 <!DOCTYPE html>
 <html lang="es">
-  <head>
-    <meta charset="UTF-8" />
-    <title>Editor - Daradigu</title>
-  </head>
-  <body>
-    <h1>🖋️ Editor visual IA</h1>
-    <p>Aquí podrás editar tus contenidos con inteligencia artificial.</p>
-    <p><strong>Nota:</strong> Esta función estará disponible en la versión real.</p>
-    <p><a href="/inicio.html">Volver al inicio</a></p>
-  </body>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Editor IA – Daradigu</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css">
+</head>
+<body class="bg-gray-50 min-h-screen flex flex-col">
+  <header class="bg-gray-900 text-white p-4">
+    <div class="max-w-7xl mx-auto flex justify-between items-center">
+      <h1 class="text-xl font-bold">Editor IA</h1>
+      <a href="index.html" class="hover:underline">Volver al inicio</a>
+    </div>
+  </header>
+
+  <main class="flex-1 max-w-6xl mx-auto py-8 px-4">
+    <h2 class="text-2xl font-bold mb-4">Edita tu contenido generado con IA</h2>
+    <textarea class="w-full h-64 p-4 border rounded-md text-sm font-mono" placeholder="Aquí aparecerá el texto generado por IA..."></textarea>
+    <div class="mt-4 flex justify-end space-x-2">
+      <button class="bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700">Guardar</button>
+      <button class="bg-gray-300 px-4 py-2 rounded-md hover:bg-gray-400">Descartar</button>
+    </div>
+  </main>
+
+  <footer class="text-center py-6 text-sm text-gray-500">
+    Editor IA básico – Integración completa en desarrollo
+  </footer>
+</body>
 </html>
-Crear editor.html
