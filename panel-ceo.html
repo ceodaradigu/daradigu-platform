@@ -1,23 +1,49 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Panel CEO - Daradigu</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Panel CEO – Daradigu</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css">
 </head>
-<body>
-  <h1>📊 Panel del CEO</h1>
+<body class="bg-gray-100 min-h-screen text-gray-800">
+  <header class="bg-gray-900 text-white p-4">
+    <div class="max-w-7xl mx-auto flex justify-between items-center">
+      <h1 class="text-xl font-bold">Panel CEO – Daradigu</h1>
+      <nav>
+        <a href="index.html" class="hover:underline">Inicio</a>
+      </nav>
+    </div>
+  </header>
 
-  <ul>
-    <li>Impacto emocional (últimos 7 días): 😊 84% usuarios positivos</li>
-    <li>Sorpresa positiva tras usar IA: ✨ 71%</li>
-    <li>Usuarios que recomendarían Daradigu: 📈 NPS +42</li>
-    <li>Contenido creado esta semana: 🖼️ 239 publicaciones</li>
-    <li>Pruebas activas del Plan Mini: 👥 38 testers</li>
-  </ul>
+  <main class="max-w-6xl mx-auto py-12 px-4">
+    <h2 class="text-3xl font-bold mb-6">Métricas clave</h2>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <div class="bg-white p-6 rounded-xl shadow">
+        <h3 class="font-semibold text-lg mb-2">🧠 Sorpresa positiva</h3>
+        <p class="text-3xl font-bold text-green-600">87%</p>
+        <p class="text-sm text-gray-600">Usuarios que dijeron “superó expectativas”.</p>
+      </div>
+      <div class="bg-white p-6 rounded-xl shadow">
+        <h3 class="font-semibold text-lg mb-2">📣 NPS función IA</h3>
+        <p class="text-3xl font-bold text-blue-600">+48</p>
+        <p class="text-sm text-gray-600">Probabilidad de recomendación tras usar IA.</p>
+      </div>
+      <div class="bg-white p-6 rounded-xl shadow">
+        <h3 class="font-semibold text-lg mb-2">❤️ Satisfacción general</h3>
+        <p class="text-3xl font-bold text-purple-600">91%</p>
+        <p class="text-sm text-gray-600">Promedio mensual según encuestas.</p>
+      </div>
+      <div class="bg-white p-6 rounded-xl shadow">
+        <h3 class="font-semibold text-lg mb-2">📊 Retención 7 días</h3>
+        <p class="text-3xl font-bold text-orange-600">64%</p>
+        <p class="text-sm text-gray-600">Usuarios activos una semana después.</p>
+      </div>
+    </div>
+  </main>
 
-  <p>✅ Todo en orden. Sistema funcionando 24/7.</p>
-
-  <p><a href="inicio.html">← Volver al inicio</a></p>
+  <footer class="text-center py-6 text-sm text-gray-500">
+    Datos simulados. Panel real en desarrollo.
+  </footer>
 </body>
 </html>
