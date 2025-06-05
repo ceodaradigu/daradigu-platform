@@ -3,43 +3,46 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Plantillas - Daradigu</title>
-  <link rel="stylesheet" href="styles.css" />
+  <title>Plantillas IA – Daradigu</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css">
 </head>
-<body>
-  <header>
-    <h1>Plantillas Inteligentes</h1>
-    <nav>
-      <a href="inicio.html">Inicio</a>
-      <a href="plantillas.html" class="active">Plantillas</a>
-      <a href="ayuda.html">Ayuda</a>
-    </nav>
+<body class="bg-white text-gray-900">
+  <header class="bg-gray-900 text-white p-4">
+    <div class="max-w-7xl mx-auto flex justify-between items-center">
+      <h1 class="text-xl font-bold">Plantillas IA</h1>
+      <nav class="space-x-4">
+        <a href="crear.html" class="hover:underline">Crear</a>
+        <a href="inicio.html" class="hover:underline">Entrar</a>
+      </nav>
+    </div>
   </header>
 
-  <main>
-    <section class="intro">
-      <h2>Crea en segundos</h2>
-      <p>Elige una plantilla y deja que la IA la personalice según tu objetivo.</p>
-    </section>
-
-    <section class="gallery">
-      <div class="template-card">
-        <h3>Post Instagram Profesional</h3>
-        <button>Usar Plantilla</button>
+  <main class="max-w-6xl mx-auto py-12 px-4">
+    <h2 class="text-3xl font-bold mb-6 text-center">Selecciona una plantilla y personalízala con IA</h2>
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      <!-- Plantilla 1 -->
+      <div class="border rounded-lg p-4 shadow hover:shadow-lg transition">
+        <h3 class="font-semibold text-lg mb-2">Presentación de negocio</h3>
+        <p class="text-sm text-gray-600">Ideal para startups, pitch decks y consultoras.</p>
+        <a href="editor.html?template=negocio" class="text-blue-600 hover:underline mt-2 inline-block">Usar plantilla</a>
       </div>
-      <div class="template-card">
-        <h3>Correo de Ventas B2B</h3>
-        <button>Usar Plantilla</button>
+      <!-- Plantilla 2 -->
+      <div class="border rounded-lg p-4 shadow hover:shadow-lg transition">
+        <h3 class="font-semibold text-lg mb-2">Currículum moderno</h3>
+        <p class="text-sm text-gray-600">Perfecto para destacar tu perfil con estilo.</p>
+        <a href="editor.html?template=cv" class="text-blue-600 hover:underline mt-2 inline-block">Usar plantilla</a>
       </div>
-      <div class="template-card">
-        <h3>Landing para Webinar</h3>
-        <button>Usar Plantilla</button>
+      <!-- Plantilla 3 -->
+      <div class="border rounded-lg p-4 shadow hover:shadow-lg transition">
+        <h3 class="font-semibold text-lg mb-2">Post viral de Instagram</h3>
+        <p class="text-sm text-gray-600">Texto + imagen con IA para más impacto.</p>
+        <a href="editor.html?template=instagram" class="text-blue-600 hover:underline mt-2 inline-block">Usar plantilla</a>
       </div>
-    </section>
+    </div>
   </main>
 
-  <footer>
-    <p>&copy; 2025 Daradigu. IA multimodal para creadores.</p>
+  <footer class="text-center py-6 text-sm text-gray-500">
+    Plantillas generadas por IA · Daradigu
   </footer>
 </body>
 </html>
