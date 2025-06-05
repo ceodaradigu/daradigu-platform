@@ -3,55 +3,43 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Dashboard Daradigu</title>
-  <link rel="stylesheet" href="style.css" />
+  <title>Dashboard – Daradigu</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css">
 </head>
-<body>
-  <header>
-    <h1>📊 Dashboard Daradigu</h1>
-    <nav>
-      <a href="index.html">Inicio</a>
-      <a href="panel-ceo.html">Panel CEO</a>
-      <a href="equipo.html">Equipo</a>
-    </nav>
+<body class="bg-gray-100 min-h-screen text-gray-900">
+  <header class="bg-gray-900 text-white p-4">
+    <div class="max-w-7xl mx-auto flex justify-between items-center">
+      <h1 class="text-xl font-bold">Tu panel – Daradigu</h1>
+      <a href="index.html" class="hover:underline">Cerrar sesión</a>
+    </div>
   </header>
 
-  <main>
-    <section>
-      <h2>Resumen de métricas clave</h2>
-      <ul>
-        <li>🧠 Sorpresa positiva: 72%</li>
-        <li>💬 NPS por función IA: 8,7 / 10</li>
-        <li>🎯 Conversión a premium: 18%</li>
-        <li>📈 Retención semanal: 63%</li>
-      </ul>
-    </section>
-
-    <section>
-      <h2>Análisis emocional reciente</h2>
-      <p>Los usuarios experimentan emociones de sorpresa, motivación y seguridad al usar funciones IA.</p>
-    </section>
-
-    <section>
-      <h2>Alertas activas</h2>
-      <ul>
-        <li>⚠️ Presupuesto usado: 92% del límite</li>
-        <li>⚠️ Feedback emocional descendente en publicaciones automáticas (últimos 3 días)</li>
-      </ul>
-    </section>
-
-    <section>
-      <h2>Acciones sugeridas</h2>
-      <ol>
-        <li>Optimizar tiempo de carga de plantillas.</li>
-        <li>Agregar encuesta breve tras cada uso de IA.</li>
-        <li>Revisar integración WhatsApp con feedback negativo.</li>
-      </ol>
-    </section>
+  <main class="max-w-6xl mx-auto py-10 px-4">
+    <h2 class="text-2xl font-bold mb-6">Mis proyectos</h2>
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      <!-- Proyecto 1 -->
+      <div class="bg-white p-4 rounded-xl shadow">
+        <h3 class="font-semibold text-lg mb-2">CV Profesional</h3>
+        <p class="text-sm text-gray-600 mb-2">Generado el 3 junio 2025</p>
+        <a href="editor.html?doc=1" class="text-blue-600 hover:underline">Editar</a>
+      </div>
+      <!-- Proyecto 2 -->
+      <div class="bg-white p-4 rounded-xl shadow">
+        <h3 class="font-semibold text-lg mb-2">Pitch Startup</h3>
+        <p class="text-sm text-gray-600 mb-2">Generado el 4 junio 2025</p>
+        <a href="editor.html?doc=2" class="text-blue-600 hover:underline">Editar</a>
+      </div>
+      <!-- Proyecto 3 -->
+      <div class="bg-white p-4 rounded-xl shadow">
+        <h3 class="font-semibold text-lg mb-2">Post Instagram</h3>
+        <p class="text-sm text-gray-600 mb-2">Generado el 5 junio 2025</p>
+        <a href="editor.html?doc=3" class="text-blue-600 hover:underline">Editar</a>
+      </div>
+    </div>
   </main>
 
-  <footer>
-    <p>© 2025 Daradigu. Dashboard generado automáticamente por IA.</p>
+  <footer class="text-center py-6 text-sm text-gray-500">
+    Tus documentos se guardan automáticamente en la nube
   </footer>
 </body>
 </html>
