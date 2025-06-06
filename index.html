@@ -3,11 +3,47 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Daradigu - Inicio</title>
+  <title>Login - Daradigu</title>
 </head>
 <body>
   <h1>Bienvenido a Daradigu</h1>
-  <p>La plataforma de IA que lo hace todo.</p>
+  <p>Inicia sesión para continuar:</p>
+
+  <form id="login-form">
+    <input type="email" id="email" placeholder="Correo electrónico" required />
+    <input type="password" id="password" placeholder="Contraseña" required />
+    <button type="submit">Iniciar sesión</button>
+  </form>
+
+  <p id="status"></p>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
+  <script>
+    const supabase = supabase.createClient(
+      "https://bmvcxcqueeueesj1lg.supabase.co",
+      "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImJibXZjY3F3Y3VlZXVlc3BqbGlnIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDkxNjY5MjgsImV4cCI6MjA2NDc0MjkyOH0.MS11K1Mhhha_GHh81_a3JtuQ4qBQWkeV2gNIGUAkieg"
+    );
+
+    const loginForm = document.getElementById("login-form");
+    const status = document.getElementById("status");
+
+    loginForm.addEventListener("submit", async (e) => {
+      e.preventDefault();
+      const email = document.getElementById("email").value;
+      const password = document.getElementById("password").value;
+
+      const { data, error } = await supabase.auth.signInWithPassword({
+        email,
+        password,
+      });
+
+      if (error) {
+        status.textContent = "Error: " + error.message;
+      } else {
+        status.textContent = "Sesión iniciada correctamente.";
+        console.log("Usuario:", data.user);
+      }
+    });
+  </script>
 </body>
 </html>
-Crear nuevo index.html desde cero
