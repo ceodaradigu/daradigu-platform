@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Registro – Daradigu</title>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+</head>
+<body>
+  <h2>Crear cuenta</h2>
+  <form id="register-form">
+    <input type="email" id="email" placeholder="Correo electrónico" required />
+    <input type="password" id="password" placeholder="Contraseña" required />
+    <button type="submit">Registrarse</button>
+  </form>
+  <p id="error" style="color:red;"></p>
+  <p id="success" style="color:green;"></p>
+
+  <script>
+    const { createClient } = supabase;
+    const supabaseClient = createClient(
+      "https://bmvcxcqueeueesj1lg.supabase.co",
+      "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9..."
+    );
+
+    const form = document.getElementById("register-form");
+    const errorText = document.getElementById("error");
+    const successText = document.getElementById("success");
+
+    form.addEventListener("submit", async (e) => {
+      e.preventDefault();
+      errorText.textContent = "";
+      successText.textContent = "";
+
+      const email = document.getElementById("email").value;
+      const password = document.getElementById("password").value;
+
+      const { data, error } = await supabaseClient.auth.signUp({
+        email,
+        password
+      });
+
+      if (error) {
+        errorText.textContent = error.message;
+      } else {
+        successText.textContent = "Cuenta creada correctamente. Revisa tu email para confirmar.";
+      }
+    });
+  </script>
+</body>
+</html>
