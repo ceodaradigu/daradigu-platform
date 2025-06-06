@@ -2,44 +2,43 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Iniciar sesión - Daradigu</title>
+  <title>Iniciar sesión – Daradigu</title>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 </head>
 <body>
-  <h1>Iniciar sesión</h1>
-
+  <h2>Iniciar sesión</h2>
   <form id="login-form">
     <input type="email" id="email" placeholder="Correo electrónico" required />
     <input type="password" id="password" placeholder="Contraseña" required />
     <button type="submit">Entrar</button>
   </form>
+  <p id="error" style="color:red;"></p>
 
-  <p id="message" style="color: red;"></p>
-
-  <script type="module">
-    import { createClient } from "https://cdn.jsdelivr.net/npm/@supabase/supabase-js/+esm";
-
-    const supabase = createClient(
-      "https://bmvcxcqueeueesj1lg.supabase.co",
-      "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9..."
-    );
+  <script>
+    const { createClient } = supabase;
+    const supabaseUrl = "https://bmvcxcqueeueesj1lg.supabase.co";
+    const supabaseKey = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImJtdmN4Y3F3Y3VlZXVlc3BqbGlnIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDkxNjY5MjgsImV4cCI6MjA2NDc0MjkyOH0.MS11K1Mhhha_GHh81_a3JtuQ4qBQWkeV2gNIGUAkieg";
+    const supabaseClient = createClient(supabaseUrl, supabaseKey);
 
     const form = document.getElementById("login-form");
-    const message = document.getElementById("message");
+    const errorText = document.getElementById("error");
 
     form.addEventListener("submit", async (e) => {
       e.preventDefault();
-      message.textContent = "";
+      errorText.textContent = "";
 
       const email = document.getElementById("email").value;
       const password = document.getElementById("password").value;
 
-      const { error } = await supabase.auth.signInWithPassword({ email, password });
+      const { data, error } = await supabaseClient.auth.signInWithPassword({
+        email,
+        password,
+      });
 
       if (error) {
-        message.textContent = "Correo o contraseña incorrectos";
+        errorText.textContent = "Correo o contraseña incorrectos";
       } else {
-        window.location.href = "panel-ceo.html";
+        window.location.href = "panel-ceo.html"; // Redirige si es correcto
       }
     });
   </script>
