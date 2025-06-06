@@ -1,50 +1,63 @@
 <!DOCTYPE html>
 <html lang="es">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Crear proyecto</title>
-    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
-    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-  </head>
-  <body class="bg-gray-100 flex items-center justify-center h-screen">
-    <div class="bg-white p-8 rounded shadow-md w-full max-w-md">
-      <h2 class="text-2xl font-bold mb-6 text-center">Crear proyecto</h2>
-      <form id="projectForm" class="space-y-4">
-        <input type="text" id="titulo" placeholder="Título del proyecto" required class="w-full border rounded p-2" />
-        <textarea id="contenido" placeholder="Descripción o contenido..." required class="w-full border rounded p-2"></textarea>
-        <button type="submit" class="bg-green-600 text-white px-4 py-2 rounded w-full hover:bg-green-700">Crear</button>
-      </form>
-      <p class="mt-4 text-center text-sm"><a href="inicio.html" class="text-blue-600">Volver</a></p>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Crear Proyecto</title>
+  <script type="module" src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js/+esm"></script>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-100 text-gray-900">
+  <div class="max-w-md mx-auto p-6">
+    <h2 class="text-xl font-bold mb-4">Crear nuevo proyecto</h2>
+
+    <form id="formularioProyecto" class="bg-white p-4 rounded shadow">
+      <input id="titulo" type="text" placeholder="Título del proyecto" class="w-full mb-2 p-2 border rounded" required />
+      <textarea id="contenido" placeholder="Descripción..." class="w-full mb-2 p-2 border rounded" required></textarea>
+      <button type="submit" class="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600">Crear</button>
+    </form>
+
+    <div class="mt-4">
+      <a href="panel-ceo.html" class="text-blue-500 underline text-sm">← Volver al panel</a>
     </div>
+  </div>
 
-    <script>
-      const supabase = supabase.createClient(
-        "https://bmvcxcqueeueesj1lg.supabase.co",
-        "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImJibXZjY3F3Y3VlZXVlc3BqbGlnIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDkxNjY5MjgsImV4cCI6MjA2NDc0MjkyOH0.MS11K1Mhhha_GHh81_a3JtuQ4qBQWkeV2gNIGUAkieg"
-      );
+  <script type="module">
+    import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js/+esm'
 
-      document.getElementById("projectForm").addEventListener("submit", async function (e) {
-        e.preventDefault();
+    const supabase = createClient(
+      'https://bmvcxcqueeueesj1lg.supabase.co',
+      'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImJtdmN4Y3F3Y3VlZWVzajFsbGciLCJyb2xlIjoiYW5vbiIsImlhdCI6MTc0OTE2NjkyOCwiZXhwIjoyMDY0NzQyOTI4fQ.MS11K1Mhhha_GHh81_a3JtuQ4qBQWkeV2gNIGUAkieg'
+    )
 
-        const { data: { user } } = await supabase.auth.getUser();
-        if (!user) return alert("Debes iniciar sesión");
+    document.getElementById("formularioProyecto").addEventListener("submit", async (e) => {
+      e.preventDefault()
 
-        const { error } = await supabase
-          .from("proyectos")
-          .insert([{
-            titulo: document.getElementById("titulo").value,
-            contenido: document.getElementById("contenido").value,
-            user_id: user.id
-          }]);
+      const { data: session } = await supabase.auth.getUser()
+      const user = session.user
 
-        if (error) {
-          alert("Error: " + error.message);
-        } else {
-          alert("Proyecto creado");
-          window.location.href = "panel-ceo.html";
+      if (!user) {
+        alert("Debes iniciar sesión")
+        return
+      }
+
+      const titulo = document.getElementById("titulo").value
+      const contenido = document.getElementById("contenido").value
+
+      const { error } = await supabase.from("proyectos").insert([
+        {
+          titulo,
+          contenido,
+          id_usuario: user.id
         }
-      });
-    </script>
-  </body>
+      ])
+
+      if (error) {
+        alert("Error al guardar: " + error.message)
+      } else {
+        window.location.href = "panel-ceo.html"
+      }
+    })
+  </script>
+</body>
 </html>
