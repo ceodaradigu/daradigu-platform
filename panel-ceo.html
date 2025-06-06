@@ -2,17 +2,23 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Mis Proyectos</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Panel CEO</title>
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
 </head>
-<body class="bg-gray-100 text-gray-800">
+<body class="bg-gray-100 text-gray-900">
 
-  <div class="max-w-3xl mx-auto p-6">
-    <h1 class="text-2xl font-bold mb-4">Mis proyectos</h1>
-    <div id="lista-proyectos" class="space-y-4"></div>
-    <p class="mt-8"><a href="inicio.html" class="text-blue-500 underline">← Volver</a></p>
+  <div class="max-w-4xl mx-auto p-8">
+    <h1 class="text-3xl font-bold mb-4">Panel del CEO</h1>
+
+    <!-- Botón cerrar sesión -->
+    <button onclick="cerrarSesion()" class="bg-red-500 text-white px-4 py-2 rounded hover:bg-red-700 mb-8">
+      Cerrar sesión
+    </button>
+
+    <!-- Contenedor proyectos -->
+    <div id="proyectos" class="space-y-4"></div>
   </div>
 
   <script>
@@ -22,23 +28,24 @@
     );
 
     async function cargarProyectos() {
-      const { data: user } = await supabase.auth.getUser();
-      if (!user || !user.user) {
-        document.getElementById("lista-proyectos").innerHTML = "<p class='text-red-600'>Debes iniciar sesión para ver tus proyectos.</p>";
+      const usuario = supabase.auth.getUser
+        ? (await supabase.auth.getUser()).data.user
+        : null;
+
+      if (!usuario) {
+        alert("Debes iniciar sesión");
+        window.location.href = "inicio.html";
         return;
       }
 
       const { data, error } = await supabase
         .from("proyectos")
-        .select("*")
-        .eq("user_id", user.user.id)
-        .order("fecha", { ascending: false });
+        .select()
+        .eq("user_id", usuario.id);
 
-      const contenedor = document.getElementById("lista-proyectos");
-
+      const contenedor = document.getElementById("proyectos");
       if (error) {
-        contenedor.innerHTML = "<p class='text-red-600'>Error al cargar proyectos.</p>";
-        console.error(error);
+        contenedor.innerHTML = "<p>Error al cargar proyectos.</p>";
         return;
       }
 
@@ -47,16 +54,26 @@
         return;
       }
 
-      contenedor.innerHTML = data.map(p => `
-        <div class="bg-white shadow rounded p-4">
-          <h2 class="text-lg font-semibold">${p.titulo}</h2>
-          <p class="text-sm mt-2 text-gray-700">${p.contenido}</p>
-          <p class="text-xs text-gray-400 mt-2">Creado: ${new Date(p.fecha).toLocaleString()}</p>
-        </div>
-      `).join("");
+      data.forEach((proyecto) => {
+        const div = document.createElement("div");
+        div.className = "bg-white p-4 rounded shadow";
+        div.innerHTML = `
+          <h2 class="text-xl font-bold">${proyecto.titulo}</h2>
+          <p>${proyecto.contenido}</p>
+          <p class="text-sm text-gray-500 mt-1">${new Date(proyecto.fecha).toLocaleString()}</p>
+        `;
+        contenedor.appendChild(div);
+      });
+    }
+
+    function cerrarSesion() {
+      supabase.auth.signOut().then(() => {
+        window.location.href = "inicio.html";
+      });
     }
 
     cargarProyectos();
   </script>
+
 </body>
 </html>
